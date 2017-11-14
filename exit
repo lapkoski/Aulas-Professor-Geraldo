@@ -1,0 +1,108 @@
+[33mcommit 21a28fe3a20aadf2b04cf135555af0531631b028[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Mon Nov 13 22:53:43 2017 -0200
+
+    Criada função ListarClientes e chamada da mesma.
+
+[33mcommit 524f43499395e5627250fb00785a0d8efc3a4621[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Mon Nov 13 22:51:03 2017 -0200
+
+    Criada função ListarClientes e chamada da mesma.
+
+[33mcommit cb5eeed059a5304b40880037bb96d5945cbf852d[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Mon Nov 13 22:47:17 2017 -0200
+
+    Criada função CadastroCliente e chamada da mesma.
+
+[33mcommit 8f36b8bce1b18c376849bace452c321b87e0b0e7[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Mon Nov 13 22:36:40 2017 -0200
+
+    Criado EscolhaMenu.
+
+[33mcommit c204d8e20273109e84af18d92879d64514691c58[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Mon Nov 13 22:18:34 2017 -0200
+
+    Criação do Menu de opções do Cliente.
+
+[33mcommit eac9b98fa69c75934b6b28085aa4b19e20c2d506[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Mon Nov 13 21:40:32 2017 -0200
+
+    Projeto base.
+
+[33mcommit 95701ad5b351b7b9fe3c4e7d6012eb807b94924b[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Mon Nov 13 21:34:06 2017 -0200
+
+    Primeiro commit, base do projeto.
+
+[33mcommit 78dc38921036a2be7dd855b1202907a6b23eb7cf[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Fri Nov 10 02:32:35 2017 -0200
+
+    Deletado arquivo.
+
+[33mcommit c7d7711b9a4107c6708252cda7dfde3b130a0f0b[m
+Merge: 99023ff 6700a54
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Fri Nov 10 02:11:31 2017 -0200
+
+    Merge branch 'master' of https://github.com/lapkoski/Aulas-Professor-Geraldo
+
+[33mcommit 99023ff4d5a9e0056a4a0d231d934c06a6a46d95[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Fri Nov 10 02:10:34 2017 -0200
+
+    Primeiro commit, projeto base.
+
+[33mcommit 6700a54146dd019d60c34b54785b9a02ddf0a426[m
+Merge: 679de23 da12e1e
+Author: lapkoski <raphael.lapkoski@outlook.com.br>
+Date:   Thu Nov 9 20:59:54 2017 -0200
+
+    Merge pull request #2 from lapkoski/development
+    
+    Calculo circulo qualquer e equilatero.
+
+[33mcommit da12e1e921c3bb7be3ea3c4b1b31aa4f6e18c21b[m[33m ([m[1;31morigin/development[m[33m, [m[1;32mdevelopment[m[33m)[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Thu Nov 9 20:45:58 2017 -0200
+
+    Calculo circulo qualquer e equilatero.
+
+[33mcommit 679de237caebcb553d9a497facafbf7e69453684[m
+Merge: e1fd431 90a39bc
+Author: lapkoski <raphael.lapkoski@outlook.com.br>
+Date:   Thu Nov 9 20:05:17 2017 -0200
+
+    Merge pull request #1 from lapkoski/development
+    
+    Development
+
+[33mcommit 90a39bcbbc0ea3b657f7136e5b39ef619e78efbd[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Thu Nov 9 19:57:43 2017 -0200
+
+    Primeiro commit aula 09/11/2017.
+
+[33mcommit 4a9284acd175bd109779147623dee5b5e6821f09[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Thu Oct 26 20:33:57 2017 -0200
+
+    Adicionado Multa Imóvel..
+
+[33mcommit 47c2a19bf623daebbc2bad2b3c850dfb0e46bd3e[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Thu Oct 26 20:10:43 2017 -0200
+
+    Adicionado Cadastro de Aluno.
+
+[33mcommit e1fd4313b6b0b9a856d7d90d939d144f246012b3[m
+Author: Raphael L. Mazanek <raphael.lapkoski@outlook.com.br>
+Date:   Thu Oct 26 19:35:12 2017 -0200
+
+    Primeiro Commit Aula26102017.c, estrutura base.
