@@ -5,6 +5,7 @@
 
 void Menu();
 void EscolhaMenu(int opcao);
+void CadastrarCliente();
 
 int main(){
 
@@ -46,8 +47,7 @@ void EscolhaMenu(int opcao){
     switch(opcao){
 
         case 1:
-            printf("======= CADASTRAR CLIENTE =======");
-            getch();
+            CadastrarCliente();
         break;
 
         case 2:
@@ -72,5 +72,14 @@ void EscolhaMenu(int opcao){
         break;
 
     }
+
+}
+
+//Função responsável por efetuar o Cadastro de Clientes.
+void CadastrarCliente(){
+
+    system("cls");
+    printf("======= CADASTRAR CLIENTE =======");
+    getch();
 
 }
