@@ -4,6 +4,7 @@
 #include <locale.h>
 
 void Menu();
+void EscolhaMenu(int opcao);
 
 int main(){
 
@@ -28,9 +29,48 @@ void Menu(){
         printf("\t");
         printf("3) Excluir \n");
         printf("\t");
+        printf("0) Sair \n");
+        printf("\t");
         printf("Opcao: ");
         scanf("%d", &opcao);
 
+        EscolhaMenu(opcao);
+
     }while(opcao != 0);
+
+}
+
+//Recebe opção escolhida e direciona.
+void EscolhaMenu(int opcao){
+
+    switch(opcao){
+
+        case 1:
+            printf("======= CADASTRAR CLIENTE =======");
+            getch();
+        break;
+
+        case 2:
+            printf("======= LISTAR CLIENTES =======");
+            getch();
+        break;
+
+        case 3:
+            printf("======= EXCLUIR CLIENTE =======");
+            getch();
+        break;
+
+        case 0:
+            printf("\t");
+            printf("Saindo... \n\n");
+        break;
+
+        default:
+            printf("\t");
+            printf("Opcao invalida");
+            getch();
+        break;
+
+    }
 
 }
