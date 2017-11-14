@@ -6,7 +6,7 @@
 #include <math.h>
 
 void Menu();
-void EscolhaMenu();
+void EscolhaMenu(int opcao);
 void TrianguloQualquer();
 float CalcularTrianguloQualquer(float altura, float base);
 void TrianguloEquilatero();
