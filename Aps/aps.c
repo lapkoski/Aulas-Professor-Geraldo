@@ -7,7 +7,6 @@ void Menu();
 void EscolhaMenu(int opcao);
 void CadastrarCliente();
 void ListarClientes();
-void ExcluirCliente();
 
 int main(){
 
@@ -57,7 +56,8 @@ void EscolhaMenu(int opcao){
         break;
 
         case 3:
-            ExcluirCliente();
+            printf("======= EXCLUIR CLIENTE =======");
+            getch();
         break;
 
         case 0:
@@ -89,15 +89,6 @@ void ListarClientes(){
 
     system("cls");
     printf("======= LISTAR CLIENTES =======");
-    getch();
-
-}
-
-//Função responsável por Excluir o Cliente.
-void ExcluirCliente(){
-
-    system("cls");
-    printf("======= EXCLUIR CLIENTE =======");
     getch();
 
 }
