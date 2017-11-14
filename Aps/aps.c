@@ -6,6 +6,7 @@
 void Menu();
 void EscolhaMenu(int opcao);
 void CadastrarCliente();
+void ListarClientes();
 
 int main(){
 
@@ -51,8 +52,7 @@ void EscolhaMenu(int opcao){
         break;
 
         case 2:
-            printf("======= LISTAR CLIENTES =======");
-            getch();
+            ListarClientes();
         break;
 
         case 3:
@@ -80,6 +80,15 @@ void CadastrarCliente(){
 
     system("cls");
     printf("======= CADASTRAR CLIENTE =======");
+    getch();
+
+}
+
+//Função responsável por Listar os Clientes.
+void ListarClientes(){
+
+    system("cls");
+    printf("======= LISTAR CLIENTES =======");
     getch();
 
 }
