@@ -3,11 +3,30 @@
 #include <conio.h>
 #include <locale.h>
 
+//Subrotinas
 void Menu();
 void EscolhaMenu(int opcao);
 void CadastrarCliente();
 void ListarClientes();
 void ExcluirCliente();
+
+//Structs
+struct Tipo_Endereco{
+    char Rua[50];
+    int Numero;
+    char Bairro[50];
+    char Cidade[50];
+    char Estado[3];
+};
+
+struct Tipo_Cliente{
+    int Codigo;
+    char Nome[50];
+    struct Tipo_Endereco Endereco;
+    char Email[50];
+};
+
+struct Tipo_Cliente cliente;
 
 int main(){
 
@@ -80,8 +99,41 @@ void CadastrarCliente(){
 
     system("cls");
     printf("======= CADASTRAR CLIENTE =======");
-    getch();
-
+    printf("\n \t");
+    fflush(stdin);
+    printf("Informe o Codigo: ");
+    scanf("%d", &cliente.Codigo);
+    printf("\n \t");
+    fflush(stdin);
+    printf("Informe o Nome: ");
+    gets(cliente.Nome);
+    printf("\n \t");
+    fflush(stdin);
+    printf("Informe a Rua: ");
+    gets(cliente.Endereco.Rua);
+    printf("\n \t");
+    fflush(stdin);
+    printf("Informe o Numero: ");
+    scanf("%d", &cliente.Endereco.Numero);
+    printf("\n \t");
+    fflush(stdin);
+    printf("Informe a Bairro: ");
+    gets(cliente.Endereco.Bairro);
+    printf("\n \t");
+    fflush(stdin);
+    printf("Informe a Cidade: ");
+    gets(cliente.Endereco.Cidade);
+    printf("\n \t");
+    fflush(stdin);
+    printf("Informe a Estado (sigla): ");
+    gets(cliente.Endereco.Estado);
+    printf("\n \t");
+    fflush(stdin);
+    printf("Informe o Email: ");
+    gets(cliente.Email);
+    printf("\n \t");
+    fflush(stdin);   
+    
 }
 
 //Função responsável por Listar os Clientes.
