@@ -26,7 +26,7 @@ struct Tipo_Cliente{
     char Email[50];
 };
 
-struct Tipo_Cliente cliente;
+struct Tipo_Cliente cliente[2];
 
 int main(){
 
@@ -97,42 +97,44 @@ void EscolhaMenu(int opcao){
 //Função responsável por efetuar o Cadastro de Clientes.
 void CadastrarCliente(){
 
+    for(int i = 0; i < 2; i++){
     system("cls");
     printf("======= CADASTRAR CLIENTE =======");
     printf("\n \t");
     fflush(stdin);
     printf("Informe o Codigo: ");
-    scanf("%d", &cliente.Codigo);
+    scanf("%d", &cliente[i].Codigo);
     printf("\n \t");
     fflush(stdin);
     printf("Informe o Nome: ");
-    gets(cliente.Nome);
+    gets(cliente[i].Nome);
     printf("\n \t");
     fflush(stdin);
     printf("Informe a Rua: ");
-    gets(cliente.Endereco.Rua);
+    gets(cliente[i].Endereco.Rua);
     printf("\n \t");
     fflush(stdin);
     printf("Informe o Numero: ");
-    scanf("%d", &cliente.Endereco.Numero);
+    scanf("%d", &cliente[i].Endereco.Numero);
     printf("\n \t");
     fflush(stdin);
     printf("Informe a Bairro: ");
-    gets(cliente.Endereco.Bairro);
+    gets(cliente[i].Endereco.Bairro);
     printf("\n \t");
     fflush(stdin);
     printf("Informe a Cidade: ");
-    gets(cliente.Endereco.Cidade);
+    gets(cliente[i].Endereco.Cidade);
     printf("\n \t");
     fflush(stdin);
     printf("Informe a Estado (sigla): ");
-    gets(cliente.Endereco.Estado);
+    gets(cliente[i].Endereco.Estado);
     printf("\n \t");
     fflush(stdin);
     printf("Informe o Email: ");
-    gets(cliente.Email);
+    gets(cliente[i].Email);
     printf("\n \t");
     fflush(stdin);   
+    }
     
 }
 
@@ -141,6 +143,29 @@ void ListarClientes(){
 
     system("cls");
     printf("======= LISTAR CLIENTES =======");
+
+    for(int i = 0; i < 2; i++){
+
+        printf("\n \t");  
+        printf("Codigo: %d", cliente[i].Codigo);
+        printf("\n \t"); 
+        printf("Nome: %s", cliente[i].Nome);
+        printf("\n \t");
+        printf("Rua: %s", cliente[i].Endereco.Rua);
+        printf("\n \t");
+        printf("Numero: %d", cliente[i].Endereco.Numero);  
+        printf("\n \t");   
+        printf("Bairro: %s", cliente[i].Endereco.Bairro);
+        printf("\n \t");
+        printf("Informe a Cidade: %s", cliente[i].Endereco.Cidade);
+        printf("\n \t");
+        printf("Estado (sigla): %s", cliente[i].Endereco.Estado);
+        printf("\n \t");
+        printf("Informe o Email: %s", cliente[i].Email);       
+        printf("\n\n");
+
+    }
+
     getch();
 
 }
