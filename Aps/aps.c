@@ -3,11 +3,10 @@
 #include <conio.h>
 #include <locale.h>
 
-#define TOTALCLIENTE 3
+#define TOTALCLIENTE 2
 
 //Subrotinas
 void Menu(int qtdClientes);
-void EscolhaMenu(int opcao);
 int CadastrarCliente(int qtdClientes);
 void ListarClientes(int qtdClientes);
 void ExcluirCliente();
@@ -103,51 +102,74 @@ void Menu(int qtdClientes)
 int CadastrarCliente(int qtdClientes)
 {
 
-    for(int i = 0; i < TOTALCLIENTE; i++)
-    {
+int codigo = 1;
+
+if(qtdClientes < TOTALCLIENTE)
+{
+
+    while(codigo =! 0)
+    {      
+
         system("cls");
-        printf("======= CADASTRAR CLIENTE =======");
+        printf("======= CADASTRAR CLIENTES =======");
         printf("\n \t");
         fflush(stdin);
         printf("Informe o Codigo: ");
-        scanf("%d", &cliente[i].Codigo);
-        printf("\n \t");
-        fflush(stdin);
-        printf("Informe o Nome: ");
-        gets(cliente[i].Nome);
-        printf("\n \t");
-        fflush(stdin);
-        printf("Informe a Rua: ");
-        gets(cliente[i].Endereco.Rua);
-        printf("\n \t");
-        fflush(stdin);
-        printf("Informe o Numero: ");
-        scanf("%d", &cliente[i].Endereco.Numero);
-        printf("\n \t");
-        fflush(stdin);
-        printf("Informe a Bairro: ");
-        gets(cliente[i].Endereco.Bairro);
-        printf("\n \t");
-        fflush(stdin);
-        printf("Informe a Cidade: ");
-        gets(cliente[i].Endereco.Cidade);
-        printf("\n \t");
-        fflush(stdin);
-        printf("Informe a Estado (sigla): ");
-        gets(cliente[i].Endereco.Estado);
-        printf("\n \t");
-        fflush(stdin);
-        printf("Informe o Email: ");
-        gets(cliente[i].Email);
-        printf("\n \t");
-        fflush(stdin);   
+        scanf("%d", &cliente[qtdClientes].Codigo);
 
-        qtdClientes += 1;
-
+		if(cliente[qtdClientes].Codigo != 0)
+		{
+	
+			fflush(stdin);
+			printf("Informe o Nome: ");
+			gets(cliente[qtdClientes].Nome);
+			printf("\n \t");
+			fflush(stdin);
+			printf("Informe a Rua: ");
+			gets(cliente[qtdClientes].Endereco.Rua);
+			printf("\n \t");
+			fflush(stdin);
+			printf("Informe o Numero: ");
+			scanf("%d", &cliente[qtdClientes].Endereco.Numero);
+			printf("\n \t");
+			fflush(stdin);
+			printf("Informe a Bairro: ");
+			gets(cliente[qtdClientes].Endereco.Bairro);
+			printf("\n \t");
+			fflush(stdin);
+			printf("Informe a Cidade: ");
+			gets(cliente[qtdClientes].Endereco.Cidade);
+			printf("\n \t");
+			fflush(stdin);
+			printf("Informe a Estado (sigla): ");
+			gets(cliente[qtdClientes].Endereco.Estado);
+			printf("\n \t");
+			fflush(stdin);
+			printf("Informe o Email: ");
+			gets(cliente[qtdClientes].Email);
+			printf("\n \t");
+			fflush(stdin);   
+			
+			qtdClientes += 1;
+	
+		}
+		else
+		{
+	
+			return qtdClientes;
+	
+		}   
+    
     }
+}
+else
+{
+    printf("Fila cheia.");
+    getch();
+}
 
     return qtdClientes;
-    
+
 }
 
 //Função responsável por Listar os Clientes.
@@ -185,8 +207,7 @@ void ListarClientes(int qtdClientes)
 
 //Função responsável por Excluir o Cliente.
 void ExcluirCliente()
-{
-    system("cls");
+{    system("cls");
     printf("======= EXCLUIR CLIENTE =======");
     printf("\n \t");    
     
