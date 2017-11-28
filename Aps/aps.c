@@ -6,10 +6,10 @@
 #define TOTALCLIENTE 3
 
 //Subrotinas
-void Menu();
+void Menu(int qtdClientes);
 void EscolhaMenu(int opcao);
 int CadastrarCliente(int qtdClientes);
-void ListarClientes();
+void ListarClientes(int qtdClientes);
 void ExcluirCliente();
 
 //Structs
@@ -30,18 +30,21 @@ struct Tipo_Cliente
     char Email[50];
 };
 
-struct Tipo_Cliente cliente[2];
+struct Tipo_Cliente cliente[TOTALCLIENTE];
 
 int main()
 {
 
-    Menu();
+    int qtdClientes = 0;
+
+    Menu(qtdClientes);
     
     system("pause");
+
 }
 
 //Menu de Clientes.
-void Menu()
+void Menu(int qtdClientes)
 {
 
     int opcao;
@@ -62,44 +65,37 @@ void Menu()
         printf("Opcao: ");
         scanf("%d", &opcao);
 
-        EscolhaMenu(opcao);
+        switch(opcao)
+        {
+    
+            case 1:
+                qtdClientes = CadastrarCliente(qtdClientes);            
+            break;
+    
+            case 2:
+                ListarClientes(qtdClientes);
+            break;
+    
+            case 3:
+                ExcluirCliente();
+            break;
+    
+            case 0:
+                printf("\t");
+                printf("Saindo... \n\n");
+            break;
+    
+            default:
+                printf("\t");
+                printf("Opcao invalida");
+                getch();
+            break;
+    
+        }
+        
+        //EscolhaMenu(opcao);
 
     }while(opcao != 0);
-
-}
-
-//Recebe opção escolhida e direciona.
-void EscolhaMenu(int opcao)
-{
-
-    int qtdClientes = 0;
-
-    switch(opcao){
-
-        case 1:
-            qtdClientes = CadastrarCliente(qtdClientes);            
-        break;
-
-        case 2:
-            ListarClientes();
-        break;
-
-        case 3:
-            ExcluirCliente();
-        break;
-
-        case 0:
-            printf("\t");
-            printf("Saindo... \n\n");
-        break;
-
-        default:
-            printf("\t");
-            printf("Opcao invalida");
-            getch();
-        break;
-
-    }
 
 }
 
@@ -107,7 +103,7 @@ void EscolhaMenu(int opcao)
 int CadastrarCliente(int qtdClientes)
 {
 
-    for(int i = 0; i < 2; i++)
+    for(int i = 0; i < TOTALCLIENTE; i++)
     {
         system("cls");
         printf("======= CADASTRAR CLIENTE =======");
@@ -155,13 +151,13 @@ int CadastrarCliente(int qtdClientes)
 }
 
 //Função responsável por Listar os Clientes.
-void ListarClientes()
+void ListarClientes(int qtdClientes)
 {
 
     system("cls");
     printf("======= LISTAR CLIENTES =======");
 
-    for(int i = 0; i < 2; i++){
+    for(int i = 0; i < qtdClientes; i++){
 
         printf("\n \t");  
         printf("Codigo: %d", cliente[i].Codigo);
@@ -174,7 +170,7 @@ void ListarClientes()
         printf("\n \t");   
         printf("Bairro: %s", cliente[i].Endereco.Bairro);
         printf("\n \t");
-        printf("Informe a Cidade: %s", cliente[i].Endereco.Cidade);
+        printf("Cidade: %s", cliente[i].Endereco.Cidade);
         printf("\n \t");
         printf("Estado (sigla): %s", cliente[i].Endereco.Estado);
         printf("\n \t");
@@ -190,21 +186,9 @@ void ListarClientes()
 //Função responsável por Excluir o Cliente.
 void ExcluirCliente()
 {
-
-    int codigo;
-
     system("cls");
     printf("======= EXCLUIR CLIENTE =======");
     printf("\n \t");    
-    printf("Informe o Codigo: ");
-    scanf("%d", &codigo);
-
-    do
-    {
-
-         
-
-    }while(cliente != 0);
     
     getch();
 
