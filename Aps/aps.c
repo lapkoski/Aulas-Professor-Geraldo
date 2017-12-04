@@ -6,12 +6,16 @@
 #define TOTALCLIENTE 2
 
 //Subrotinas
+#pragma region Subrotinas
 void Menu(int qtdClientes);
 int CadastrarCliente(int qtdClientes);
+int VerificaCodigo(int codigo, int qtdClientes);
 void ListarClientes(int qtdClientes);
 void ExcluirCliente();
+#pragma endregion
 
 //Structs
+#pragma region Structs
 struct Tipo_Endereco
 {
     char Rua[50];
@@ -28,6 +32,7 @@ struct Tipo_Cliente
     struct Tipo_Endereco Endereco;
     char Email[50];
 };
+#pragma endregion
 
 struct Tipo_Cliente cliente[TOTALCLIENTE];
 
@@ -43,13 +48,14 @@ int main()
 }
 
 //Menu de Clientes.
+#pragma region Menu
 void Menu(int qtdClientes)
 {
 
     int opcao;
 
-    do{        
-
+    do
+    {
         system("cls");
         printf("======= MENU CLIENTE ======= \n\n");
         printf("\t");
@@ -89,90 +95,111 @@ void Menu(int qtdClientes)
                 printf("Opcao invalida");
                 getch();
             break;
-    
         }
-        
-        //EscolhaMenu(opcao);
-
-    }while(opcao != 0);
-
+    }
+    while(opcao != 0);
 }
+#pragma endregion
 
 //Função responsável por efetuar o Cadastro de Clientes.
+#pragma region CadastrarCliente 
 int CadastrarCliente(int qtdClientes)
 {
+    int codigo = 1;
 
-int codigo = 1;
+    if(qtdClientes != TOTALCLIENTE)
+    {
+        while(codigo =! 0 || qtdClientes != TOTALCLIENTE)
+        {   
+            int existe = 0;
 
-if(qtdClientes < TOTALCLIENTE)
-{
+            system("cls");
+            printf("======= CADASTRAR CLIENTES =======");
+            printf("\n \t");
+            fflush(stdin);
 
-    while(codigo =! 0)
-    {      
-
-        system("cls");
-        printf("======= CADASTRAR CLIENTES =======");
-        printf("\n \t");
-        fflush(stdin);
-        printf("Informe o Codigo: ");
-        scanf("%d", &cliente[qtdClientes].Codigo);
-
-		if(cliente[qtdClientes].Codigo != 0)
-		{
+            printf("Informe o Codigo: ");
+            scanf("%d", &cliente[qtdClientes].Codigo);
+            existe = VerificaCodigo(cliente[qtdClientes].Codigo, qtdClientes);       
+            
+            if(existe == 1)
+            {
+                printf("Esse código já existe.");   
+                getch();
+            }
+            else
+            {
+               
+		        if(cliente[qtdClientes].Codigo != 0)
+		        {
 	
-			fflush(stdin);
-			printf("Informe o Nome: ");
-			gets(cliente[qtdClientes].Nome);
-			printf("\n \t");
-			fflush(stdin);
-			printf("Informe a Rua: ");
-			gets(cliente[qtdClientes].Endereco.Rua);
-			printf("\n \t");
-			fflush(stdin);
-			printf("Informe o Numero: ");
-			scanf("%d", &cliente[qtdClientes].Endereco.Numero);
-			printf("\n \t");
-			fflush(stdin);
-			printf("Informe a Bairro: ");
-			gets(cliente[qtdClientes].Endereco.Bairro);
-			printf("\n \t");
-			fflush(stdin);
-			printf("Informe a Cidade: ");
-			gets(cliente[qtdClientes].Endereco.Cidade);
-			printf("\n \t");
-			fflush(stdin);
-			printf("Informe a Estado (sigla): ");
-			gets(cliente[qtdClientes].Endereco.Estado);
-			printf("\n \t");
-			fflush(stdin);
-			printf("Informe o Email: ");
-			gets(cliente[qtdClientes].Email);
-			printf("\n \t");
-			fflush(stdin);   
+                    printf("\n \t");
+			        fflush(stdin);
+			        printf("Informe o Nome: ");
+			        gets(cliente[qtdClientes].Nome);
+			        printf("\n \t");
+			        fflush(stdin);
+			        printf("Informe a Rua: ");
+			        gets(cliente[qtdClientes].Endereco.Rua);
+			        printf("\n \t");
+			        fflush(stdin);
+			        printf("Informe o Numero: ");
+			        scanf("%d", &cliente[qtdClientes].Endereco.Numero);
+			        printf("\n \t");
+			        fflush(stdin);
+			        printf("Informe a Bairro: ");
+			        gets(cliente[qtdClientes].Endereco.Bairro);
+			        printf("\n \t");
+			        fflush(stdin);
+			        printf("Informe a Cidade: ");
+			        gets(cliente[qtdClientes].Endereco.Cidade);
+			        printf("\n \t");
+			        fflush(stdin);
+			        printf("Informe a Estado (sigla): ");
+			        gets(cliente[qtdClientes].Endereco.Estado);
+			        printf("\n \t");
+			        fflush(stdin);
+			        printf("Informe o Email: ");
+			        gets(cliente[qtdClientes].Email);
+			        printf("\n \t");
+			        fflush(stdin);   
 			
-			qtdClientes += 1;
+			        qtdClientes += 1;
 	
-		}
-		else
-		{
-	
-			return qtdClientes;
-	
-		}   
-    
+		        }
+		        else
+		        {	
+			        return qtdClientes;	
+		        } 
+            }                        
+        }
     }
-}
-else
-{
-    printf("Fila cheia.");
-    getch();
-}
-
+    else
+    {
+        printf("Fila cheia.");
+        getch();
+    }
     return qtdClientes;
-
 }
+#pragma endregion
+
+//Função responsável por verificar se um código já existe.
+#pragma region VerificaCodigo
+int VerificaCodigo(int codigo, int qtdClientes)
+{
+    for(int i = 0; i < qtdClientes; i++)
+    {
+        if(codigo == cliente[qtdClientes - 1].Codigo)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+#pragma endregion
 
 //Função responsável por Listar os Clientes.
+#pragma region ListarClientes
 void ListarClientes(int qtdClientes)
 {
 
@@ -200,17 +227,18 @@ void ListarClientes(int qtdClientes)
         printf("\n\n");
 
     }
-
     getch();
-
 }
+#pragma endregion
 
 //Função responsável por Excluir o Cliente.
+#pragma region ExcluirCliente
 void ExcluirCliente()
-{    system("cls");
+{    
+    system("cls");
     printf("======= EXCLUIR CLIENTE =======");
     printf("\n \t");    
     
     getch();
-
 }
+#pragma endregion
