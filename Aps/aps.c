@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <locale.h>
+#include<ctype.h>
 
 #define TOTALCLIENTE 2
 
@@ -11,7 +12,7 @@ void Menu(int qtdClientes);
 int CadastrarCliente(int qtdClientes);
 int VerificaCodigo(int codigo, int qtdClientes);
 void ListarClientes(int qtdClientes);
-void ExcluirCliente();
+int ExcluirCliente(int qtdClientes);
 #pragma endregion
 
 //Structs
@@ -82,7 +83,7 @@ void Menu(int qtdClientes)
             break;
     
             case 3:
-                ExcluirCliente();
+                qtdClientes = ExcluirCliente(qtdClientes);
             break;
     
             case 0:
@@ -109,7 +110,7 @@ int CadastrarCliente(int qtdClientes)
 
     if(qtdClientes != TOTALCLIENTE)
     {
-        while(codigo =! 0 || qtdClientes != TOTALCLIENTE)
+        while(codigo =! 0)
         {   
             int existe = 0;
 
@@ -117,6 +118,13 @@ int CadastrarCliente(int qtdClientes)
             printf("======= CADASTRAR CLIENTES =======");
             printf("\n \t");
             fflush(stdin);
+
+            if(qtdClientes == TOTALCLIENTE)
+            {
+                printf("Fila cheia.");
+                getch();
+                return qtdClientes;
+            }
 
             printf("Informe o Codigo: ");
             scanf("%d", &cliente[qtdClientes].Codigo);
@@ -128,8 +136,7 @@ int CadastrarCliente(int qtdClientes)
                 getch();
             }
             else
-            {
-               
+            {                
 		        if(cliente[qtdClientes].Codigo != 0)
 		        {
 	
@@ -189,7 +196,7 @@ int VerificaCodigo(int codigo, int qtdClientes)
 {
     for(int i = 0; i < qtdClientes; i++)
     {
-        if(codigo == cliente[qtdClientes - 1].Codigo)
+        if(codigo == cliente[i].Codigo)
         {
             return 1;
         }
@@ -225,7 +232,7 @@ void ListarClientes(int qtdClientes)
         printf("\n \t");
         printf("Informe o Email: %s", cliente[i].Email);       
         printf("\n\n");
-
+        
     }
     getch();
 }
@@ -233,12 +240,49 @@ void ListarClientes(int qtdClientes)
 
 //Função responsável por Excluir o Cliente.
 #pragma region ExcluirCliente
-void ExcluirCliente()
+int ExcluirCliente(int qtdClientes)
 {    
-    system("cls");
-    printf("======= EXCLUIR CLIENTE =======");
-    printf("\n \t");    
+    int codigo = 1, posicao = 0;
+    char confirmar = 'S';
+        
+    while(codigo != 0)
+    {
+        
+        system("cls");
+        printf("======= EXCLUIR CLIENTE =======");
+        printf("\n \t");
+        printf("\n\tInforme o codigo: ");
+        scanf("%d", &codigo);
+        
+        if(codigo != 0)
+        {
+            for(int i = 0; i < qtdClientes; i++)
+            {
+                if(cliente[i].Codigo == codigo)
+                { 
+                    printf("\n \t");  
+                    printf("Codigo: %d", cliente[i].Codigo);
+                    printf("\n \t"); 
+                    printf("Nome: %s", cliente[i].Nome);
+                    printf("\n \t");
+
+                    cliente[i].Codigo = cliente[qtdClientes - 1].Codigo;
+                    // cliente[i].Nome = cliente[qtdClientes - 1].Nome;
+                    // cliente[i].Endereco.Rua = cliente[qtdClientes - 1].Endereco.Rua;
+                    // cliente[i].Endereco.Numero = cliente[qtdClientes - 1].Endereco.Numero;
+                    // cliente[i].Endereco.Bairro = cliente[qtdClientes - 1].Endereco.Bairro;
+                    // cliente[i].Endereco.Cidade = cliente[qtdClientes - 1].Endereco.Cidade;
+                    // cliente[i].Endereco.Estado = cliente[qtdClientes - 1].Endereco.Estado;
+                    // cliente[i].Email = cliente[qtdClientes - 1].Email;
+                    
+                    return qtdClientes -= 1;
+                    getch();
+                }                
+            }                
+        }
+    }
     
+    return qtdClientes;
     getch();
 }
 #pragma endregion
