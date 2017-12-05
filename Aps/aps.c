@@ -122,6 +122,7 @@ int CadastrarCliente(int qtdClientes)
 
             if(qtdClientes == TOTALCLIENTE)
             {
+                printf("\n \t");
                 printf("Fila cheia.");
                 getch();
                 return qtdClientes;
@@ -133,7 +134,8 @@ int CadastrarCliente(int qtdClientes)
             
             if(existe == 1)
             {
-                printf("Esse código já existe.");   
+                printf("\n \t");
+                printf("Esse codigo ja existe.");   
                 getch();
             }
             else
@@ -184,6 +186,7 @@ int CadastrarCliente(int qtdClientes)
     }
     else
     {
+        printf("\n \t");
         printf("Fila cheia.");
         getch();
     }
@@ -231,7 +234,7 @@ void ListarClientes(int qtdClientes)
         printf("\n \t");
         printf("Estado (sigla): %s", cliente[i].Endereco.Estado);
         printf("\n \t");
-        printf("Informe o Email: %s", cliente[i].Email);       
+        printf("E-mail: %s", cliente[i].Email);       
         printf("\n\n");
         
     }
@@ -243,7 +246,7 @@ void ListarClientes(int qtdClientes)
 #pragma region ExcluirCliente
 int ExcluirCliente(int qtdClientes)
 {    
-    int codigo = 1, posicao = 0;
+    int codigo = 1;
     char confirmar = 'S';
         
     while(codigo != 0)
@@ -261,27 +264,56 @@ int ExcluirCliente(int qtdClientes)
             {
                 if(cliente[i].Codigo == codigo)
                 { 
+                    system("cls");
+                    printf("======= EXCLUIR CLIENTE =======");
                     printf("\n \t");  
                     printf("Codigo: %d", cliente[i].Codigo);
                     printf("\n \t"); 
                     printf("Nome: %s", cliente[i].Nome);
                     printf("\n \t");
+                    printf("Rua: %s", cliente[i].Endereco.Rua);
+                    printf("\n \t");
+                    printf("Numero: %d", cliente[i].Endereco.Numero);  
+                    printf("\n \t");   
+                    printf("Bairro: %s", cliente[i].Endereco.Bairro);
+                    printf("\n \t");
+                    printf("Cidade: %s", cliente[i].Endereco.Cidade);
+                    printf("\n \t");
+                    printf("Estado (sigla): %s", cliente[i].Endereco.Estado);
+                    printf("\n \t");
+                    printf("E-mail: %s", cliente[i].Email);       
+                    printf("\n\n");
 
-                    cliente[i].Codigo = cliente[qtdClientes - 1].Codigo;
-                    strcpy(cliente[i].Nome, cliente[qtdClientes - 1].Nome);
-                    strcpy(cliente[i].Endereco.Rua, cliente[qtdClientes - 1].Endereco.Rua);
-                    cliente[i].Endereco.Numero = cliente[qtdClientes - 1].Endereco.Numero;
-                    strcpy(cliente[i].Endereco.Bairro, cliente[qtdClientes - 1].Endereco.Bairro);
-                    strcpy(cliente[i].Endereco.Cidade, cliente[qtdClientes - 1].Endereco.Cidade);
-                    strcpy(cliente[i].Endereco.Estado, cliente[qtdClientes - 1].Endereco.Estado);
-                    strcpy(cliente[i].Email, cliente[qtdClientes - 1].Email);
+                    fflush(stdin);
+                    printf("\n\nDeseja mesmo deletar o cliente? (S/N)");
+                    scanf("%c", &confirmar);
+
+                    confirmar = toupper(confirmar);
+
+                    if(confirmar == 'S')
+                    {
+
+                        cliente[i].Codigo = cliente[qtdClientes - 1].Codigo;
+                        strcpy(cliente[i].Nome, cliente[qtdClientes - 1].Nome);
+                        strcpy(cliente[i].Endereco.Rua, cliente[qtdClientes - 1].Endereco.Rua);
+                        cliente[i].Endereco.Numero = cliente[qtdClientes - 1].Endereco.Numero;
+                        strcpy(cliente[i].Endereco.Bairro, cliente[qtdClientes - 1].Endereco.Bairro);
+                        strcpy(cliente[i].Endereco.Cidade, cliente[qtdClientes - 1].Endereco.Cidade);
+                        strcpy(cliente[i].Endereco.Estado, cliente[qtdClientes - 1].Endereco.Estado);
+                        strcpy(cliente[i].Email, cliente[qtdClientes - 1].Email);
                     
-                    return qtdClientes -= 1;
+                        return qtdClientes -= 1;
 
-                    getch();
+                        printf("\n\n");
+                        printf("Operacao Realizada");
+
+                        getch();
+                    }                    
                 }
             }                
         }
     }
+
+    return qtdClientes;
 }
 #pragma endregion
