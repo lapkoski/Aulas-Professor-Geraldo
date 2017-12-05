@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <locale.h>
+#include <string.h>
 #include<ctype.h>
 
-#define TOTALCLIENTE 2
+#define TOTALCLIENTE 3
 
 //Subrotinas
 #pragma region Subrotinas
@@ -267,22 +268,20 @@ int ExcluirCliente(int qtdClientes)
                     printf("\n \t");
 
                     cliente[i].Codigo = cliente[qtdClientes - 1].Codigo;
-                    // cliente[i].Nome = cliente[qtdClientes - 1].Nome;
-                    // cliente[i].Endereco.Rua = cliente[qtdClientes - 1].Endereco.Rua;
-                    // cliente[i].Endereco.Numero = cliente[qtdClientes - 1].Endereco.Numero;
-                    // cliente[i].Endereco.Bairro = cliente[qtdClientes - 1].Endereco.Bairro;
-                    // cliente[i].Endereco.Cidade = cliente[qtdClientes - 1].Endereco.Cidade;
-                    // cliente[i].Endereco.Estado = cliente[qtdClientes - 1].Endereco.Estado;
-                    // cliente[i].Email = cliente[qtdClientes - 1].Email;
+                    strcpy(cliente[i].Nome, cliente[qtdClientes - 1].Nome);
+                    strcpy(cliente[i].Endereco.Rua, cliente[qtdClientes - 1].Endereco.Rua);
+                    cliente[i].Endereco.Numero = cliente[qtdClientes - 1].Endereco.Numero;
+                    strcpy(cliente[i].Endereco.Bairro, cliente[qtdClientes - 1].Endereco.Bairro);
+                    strcpy(cliente[i].Endereco.Cidade, cliente[qtdClientes - 1].Endereco.Cidade);
+                    strcpy(cliente[i].Endereco.Estado, cliente[qtdClientes - 1].Endereco.Estado);
+                    strcpy(cliente[i].Email, cliente[qtdClientes - 1].Email);
                     
                     return qtdClientes -= 1;
+
                     getch();
-                }                
+                }
             }                
         }
     }
-    
-    return qtdClientes;
-    getch();
 }
 #pragma endregion
