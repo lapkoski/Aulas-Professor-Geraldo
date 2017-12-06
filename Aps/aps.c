@@ -236,28 +236,37 @@ void ListarClientes(int qtdClientes)
 
 	int i;
 	
-    for(i = 0; i < qtdClientes; i++){
+    if(qtdClientes != 0)
+    {
+        for(i = 0; i < qtdClientes; i++){
 
-        printf("\n \t");  
-        printf("Codigo: %d", cliente[i].Codigo);
-        printf("\n \t"); 
-        printf("Nome: %s", cliente[i].Nome);
-        printf("\n \t");
-        printf("Rua: %s", cliente[i].Endereco.Rua);
-        printf("\n \t");
-        printf("Numero: %d", cliente[i].Endereco.Numero);  
-        printf("\n \t");   
-        printf("Bairro: %s", cliente[i].Endereco.Bairro);
-        printf("\n \t");
-        printf("Cidade: %s", cliente[i].Endereco.Cidade);
-        printf("\n \t");
-        printf("Estado (sigla): %s", cliente[i].Endereco.Estado);
-        printf("\n \t");
-        printf("E-mail: %s", cliente[i].Email);       
-        printf("\n\n");
+            printf("\n \t");  
+            printf("Codigo: %d", cliente[i].Codigo);
+            printf("\n \t"); 
+            printf("Nome: %s", cliente[i].Nome);
+            printf("\n \t");
+            printf("Rua: %s", cliente[i].Endereco.Rua);
+            printf("\n \t");
+            printf("Numero: %d", cliente[i].Endereco.Numero);  
+            printf("\n \t");   
+            printf("Bairro: %s", cliente[i].Endereco.Bairro);
+            printf("\n \t");
+            printf("Cidade: %s", cliente[i].Endereco.Cidade);
+            printf("\n \t");
+            printf("Estado (sigla): %s", cliente[i].Endereco.Estado);
+            printf("\n \t");
+            printf("E-mail: %s", cliente[i].Email);       
+            printf("\n\n");
         
+        }
+        getch();
     }
-    getch();
+    else
+    {
+        printf("\n \t");
+        printf("Nao ha clientes para listar.");
+        getch();
+    }
 }
 #pragma endregion
 
