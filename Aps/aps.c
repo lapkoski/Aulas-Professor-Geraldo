@@ -3,13 +3,13 @@
 #include <conio.h>
 #include <locale.h>
 #include <string.h>
-#include<ctype.h>
+#include <ctype.h>
+#include <locale.h>
 
 #define TOTALCLIENTE 3
 
 //Subrotinas
 #pragma region Subrotinas
-void Menu(int qtdClientes);
 int CadastrarCliente(int qtdClientes);
 int VerificaCodigo(int codigo, int qtdClientes);
 void ListarClientes(int qtdClientes);
@@ -40,19 +40,8 @@ struct Tipo_Cliente cliente[TOTALCLIENTE];
 
 int main()
 {
-
-    int qtdClientes = 0;
-
-    Menu(qtdClientes);
     
-    system("pause");
-
-}
-
-//Menu de Clientes.
-#pragma region Menu
-void Menu(int qtdClientes)
-{
+    int qtdClientes = 0;
 
     int opcao;
 
@@ -69,7 +58,7 @@ void Menu(int qtdClientes)
         printf("\t");
         printf("0) Sair \n");
         printf("\t");
-        printf("Opcao: ");
+        printf("Opção: ");
         scanf("%d", &opcao);
 
         switch(opcao)
@@ -100,8 +89,10 @@ void Menu(int qtdClientes)
         }
     }
     while(opcao != 0);
+    
+    system("pause");
+
 }
-#pragma endregion
 
 //Função responsável por efetuar o Cadastro de Clientes.
 #pragma region CadastrarCliente 
@@ -198,7 +189,9 @@ int CadastrarCliente(int qtdClientes)
 #pragma region VerificaCodigo
 int VerificaCodigo(int codigo, int qtdClientes)
 {
-    for(int i = 0; i < qtdClientes; i++)
+	int i;
+	
+    for(i = 0; i < qtdClientes; i++)
     {
         if(codigo == cliente[i].Codigo)
         {
@@ -217,7 +210,9 @@ void ListarClientes(int qtdClientes)
     system("cls");
     printf("======= LISTAR CLIENTES =======");
 
-    for(int i = 0; i < qtdClientes; i++){
+	int i;
+	
+    for(i = 0; i < qtdClientes; i++){
 
         printf("\n \t");  
         printf("Codigo: %d", cliente[i].Codigo);
@@ -260,7 +255,8 @@ int ExcluirCliente(int qtdClientes)
         
         if(codigo != 0)
         {
-            for(int i = 0; i < qtdClientes; i++)
+        	int i;
+            for(i = 0; i < qtdClientes; i++)
             {
                 if(cliente[i].Codigo == codigo)
                 { 
