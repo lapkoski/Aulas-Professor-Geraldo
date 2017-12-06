@@ -11,7 +11,8 @@
 //Subrotinas
 #pragma region Subrotinas
 int CadastrarCliente(int qtdClientes);
-int VerificaCodigo(int codigo, int qtdClientes);
+int VerificaCodigoExiste(int codigo, int qtdClientes);
+int VerificaValorCodigo(int codigo, int qtdClientes);
 void ListarClientes(int qtdClientes);
 int ExcluirCliente(int qtdClientes);
 #pragma endregion
@@ -104,7 +105,7 @@ int CadastrarCliente(int qtdClientes)
     {
         while(codigo =! 0)
         {   
-            int existe = 0;
+            int existe = 0, valido = 0;
 
             system("cls");
             printf("======= CADASTRAR CLIENTES =======");
@@ -121,7 +122,21 @@ int CadastrarCliente(int qtdClientes)
 
             printf("Informe o Codigo: ");
             scanf("%d", &cliente[qtdClientes].Codigo);
-            existe = VerificaCodigo(cliente[qtdClientes].Codigo, qtdClientes);       
+            
+            valido = VerificaValorCodigo(cliente[qtdClientes].Codigo, qtdClientes);            
+            existe = VerificaCodigoExiste(cliente[qtdClientes].Codigo, qtdClientes);       
+
+            if(cliente[qtdClientes].Codigo == 0)
+            {
+                return qtdClientes;
+            }
+
+            if(valido == 1)
+            {
+                printf("\n \t");
+                printf("Codigo deve ser menor que 100.");   
+                getch();
+            }
             
             if(existe == 1)
             {
@@ -129,9 +144,10 @@ int CadastrarCliente(int qtdClientes)
                 printf("Esse codigo ja existe.");   
                 getch();
             }
+            
             else
             {                
-		        if(cliente[qtdClientes].Codigo != 0)
+		        if(cliente[qtdClientes].Codigo != 0 && valido == 0)
 		        {
 	
                     printf("\n \t");
@@ -167,11 +183,7 @@ int CadastrarCliente(int qtdClientes)
 			
 			        qtdClientes += 1;
 	
-		        }
-		        else
-		        {	
-			        return qtdClientes;	
-		        } 
+		        }		        
             }                        
         }
     }
@@ -185,9 +197,21 @@ int CadastrarCliente(int qtdClientes)
 }
 #pragma endregion
 
+//Função responsável por verificar se um código é maior mque 100.
+#pragma region VerificaValorCodigo
+int VerificaValorCodigo(int codigo, int qtdClientes)
+{
+    if(codigo < 100)
+    {
+        return 1;
+    }
+    return 0;
+}
+#pragma endregion
+
 //Função responsável por verificar se um código já existe.
-#pragma region VerificaCodigo
-int VerificaCodigo(int codigo, int qtdClientes)
+#pragma region VerificaCodigoExiste
+int VerificaCodigoExiste(int codigo, int qtdClientes)
 {
 	int i;
 	
